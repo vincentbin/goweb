@@ -1,5 +1,6 @@
 # webgo
 A gin-like light web framework.
+一个简单的基于golang的web框架，实现了静态、动态路由映射，分组映射，静态文件传输，模板渲染。
 ## Getting Start
 支持动态、静态路由，分组路由配置，以及静态文件获取，模板渲染页面。
 ***
