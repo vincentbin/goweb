@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"webgo/server"
@@ -58,6 +59,13 @@ func main() {
 			"username": "yanyibin",
 			"password": "yyb",
 		})
+	})
+
+	s.Get("/e", func(c *server.Context) {
+		i := 10
+		b := 0
+		a := i / b
+		fmt.Println(a)
 	})
 
 	s.Run("localhost:9999")

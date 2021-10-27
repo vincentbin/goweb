@@ -1,6 +1,8 @@
 package server
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 	"webgo/util"
 )
@@ -56,6 +58,13 @@ func (r *Router) handle(c *Context) {
 		c.String(http.StatusNotFound, "404 NOT FOUND: %s.\n", c.Path)
 		return
 	}
+	defer func() {
+		if err := recover(); err != nil {
+			message := fmt.Sprintf("%s", err)
+			log.Printf("%s\n", trace(message))
+			c.Fail(http.StatusInternalServerError, "Internal Server Error")
+		}
+	}()
 	c.PathParams = pathParams
 	key := c.Method + "-" + url
 	r.routerMap[key](c)
