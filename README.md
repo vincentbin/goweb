@@ -62,8 +62,8 @@ func main() {
 通过localhost:9999/student 即可获取test.tmpl对应页面。
 ```golang
 type student struct {
-	Name string
-	Age  int
+    Name string
+    Age  int
 }
 
 func main() {
@@ -72,7 +72,7 @@ func main() {
     s.StaticResource("/static/css", "test/static")
     
     s1 := &student{Name: "yanyibin", Age: 23}
-	  s2 := &student{Name: "ty", Age: 23}
+    s2 := &student{Name: "ty", Age: 23}
     
     s.Get("/student", func(c *server.Context) {
       c.HTML(http.StatusOK, "test.tmpl", server.Content{
